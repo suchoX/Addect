@@ -1,0 +1,56 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+  compileSdkVersion 25
+  buildToolsVersion "25.0.2"
+  defaultConfig {
+    applicationId "com.crimson.addet"
+    minSdkVersion 17
+    targetSdkVersion 25
+    versionCode 1
+    versionName "1.0"
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+  }
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+  sourceSets {
+    main.java.srcDirs += 'src/main/kotlin'
+  }
+
+  dataBinding {
+    enabled = true
+  }
+}
+
+
+kapt {
+  generateStubs = true
+}
+dependencies {
+  compile fileTree(dir: 'libs', include: ['*.jar'])
+  androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    exclude group: 'com.android.support', module: 'support-annotations'
+  })
+  compile 'com.android.support:appcompat-v7:25.2.0'
+
+  //Dagger
+  compile 'com.google.dagger:dagger:2.4'
+  kapt 'com.google.dagger:dagger-compiler:2.4'
+  provided 'org.glassfish:javax.annotation:10.0-b28'
+
+  compile 'info.hoang8f:fbutton:1.0.5'
+  compile 'uk.co.chrisjenx:calligraphy:2.2.0'
+
+  testCompile 'junit:junit:4.12'
+  compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+}
+repositories {
+  mavenCentral()
+}
