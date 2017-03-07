@@ -4,6 +4,9 @@
   <color name="colorPrimaryDark">#303F9F</color>
   <color name="colorAccent">#FF4081</color>
   <color name="white">#FFFFFF</color>
-  <color name="alizarin">#e74c3c</color>
+  <color name="background">#2c3e50</color>
+  <color name="button1">#2ecc71</color>
+  <color name="button2">#e74c3c</color>
+  <color name="progress_bar_color">#f1c40f</color>
 
 </resources>
